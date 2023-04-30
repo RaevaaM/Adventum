@@ -1,10 +1,10 @@
 ﻿@model IEnumerable<Adventum.Data.SportActivity>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Sport Activities";
 }
 
-<h1>Index</h1>
+<h1>@ViewData["Title"]</h1>
 
 <p>
     <a asp-action="Create">Create New</a>
@@ -34,11 +34,19 @@
                 @Html.DisplayFor(modelItem => item.Description)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.VideoURL)
+                <iframe
+                    width="560"
+                    height="315"
+                    src="https://www.youtube.com/embed/@item.VideoURL"
+                    title="YouTube video player"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen>
+                </iframe>
             </td>
+            <td></td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
                 <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
             </td>
         </tr>

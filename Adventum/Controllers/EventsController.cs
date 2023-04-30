@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Adventum.Data;
@@ -49,7 +45,7 @@ namespace Adventum.Controllers
         public IActionResult Create()
         {
             ViewData["LocationId"] = new SelectList(_context.Locations, "Id", "Id");
-            ViewData["SportActivityId"] = new SelectList(_context.SportActivities, "Id", "Id");
+            ViewData["SportActivityId"] = new SelectList(_context.SportActivities, "Id", "Name");
             return View();
         }
 

@@ -5,16 +5,23 @@ using Microsoft.EntityFrameworkCore;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+// var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+// builder.Services.AddDbContext<AdventureContext>(options =>
+//     options.UseSqlServer(connectionString));
+
+var connectionString = builder.Configuration.GetConnectionString("LocalDatabase");
 builder.Services.AddDbContext<AdventureContext>(options =>
-    options.UseSqlServer(connectionString));
+    options.UseSqlite(connectionString));
+
+
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
 builder.Services.AddDefaultIdentity<IdentityUser>(options => 
 options.SignIn.RequireConfirmedAccount = false)
     .AddEntityFrameworkStores<AdventureContext>();
 
-builder.Services.AddControllersWithViews();
+builder.Services.AddControllersWithViews(options => 
+    options.SuppressImplicitRequiredAttributeForNonNullableReferenceTypes = true);
 
 var app = builder.Build();
 
