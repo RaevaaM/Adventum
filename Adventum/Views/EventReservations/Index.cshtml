@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<Adventum.Models.EventReservationModel>
 
 @{
-    ViewData["Title"] = "Event Reservations";
+    ViewData["Title"] = "Резервации";
 }
 
 <h1>@ViewData["Title"]</h1>
@@ -27,10 +27,10 @@
                 </p>
             </td>
             <td>
-                <a asp-action="Details" asp-route-id="@item.EventReservationId">Details</a>
+                <a asp-action="Details" asp-route-id="@item.EventReservationId">Детайли</a>
                 @if (User.IsInRole("Administrator"))
                 {
-                    <a asp-action="Delete" asp-route-id="@item.EventReservationId">Delete</a>
+                    <a asp-action="Delete" asp-route-id="@item.EventReservationId">Изтрий</a>
                 }
             </td>
         </tr>
