@@ -1,0 +1,56 @@
+@model IEnumerable<UserModel>
+
+@{
+    ViewData["Title"] = "Users";
+    Layout = "_Layout";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+
+
+@if (!Model.Any())
+{
+    <h3>There are no users currently in the database</h3>
+    @Html.ActionLink("Register new user", "Register", "Login", new { area = "" }, new { @class = "btn btn-success" })
+}
+else
+{
+    <div class="row justify-content-end">
+        <a asp-area="" asp-action="Register" asp-controller="Login" class="col-md-2 btn btn-success">Register new user</a>
+    </div>
+    <div class="row">
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Username</th>
+                <th scope="col">First name</th>
+                <th scope="col">Last name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Registered as</th>
+                <th scope="col">Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            @foreach (var (user, index) in Model.Select((u, i) => (u, i)))
+            {
+                <tr>
+                    <th scope="row">@(index + 1)</th>
+                    <td>@user.Username</td>
+                    <td>@user.FirstName</td>
+                    <td>@user.LastName</td>
+                    <td>@user.Email</td>
+                    <td>@user.RoleName</td>
+                    <td>
+                        @if(user.RoleName != Constants.AdministratorRole)
+                        {
+                            <a class="btn btn-link text-danger" asp-action="Delete" asp-route-userId="@user.UserId">Delete</a>
+                        }
+                    </td>
+                </tr>  
+            }
+            </tbody>
+        </table>
+    </div>
+}

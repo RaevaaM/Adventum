@@ -28,7 +28,7 @@
             </td>
             <td>
                 <a asp-action="Details" asp-route-id="@item.EventReservationId">Детайли</a>
-                @if (User.IsInRole("Administrator"))
+                @if (User.IsInRole(Constants.AdministratorRole))
                 {
                     <a asp-action="Delete" asp-route-id="@item.EventReservationId">Изтрий</a>
                 }

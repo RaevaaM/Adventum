@@ -60,9 +60,11 @@ namespace Adventum.Controllers
         public async Task<IActionResult> Create([Bind("Name,Description,VideoURL")] SportActivity sportActivity)
         {
             if (!ModelState.IsValid)
-            {
                 return View(sportActivity);
-            }
+
+            if(sportActivity.VideoURL.Split(youTubeSplitString).Length != 2)
+                return View(sportActivity);
+            
 
             _context.Add(sportActivity);
             await _context.SaveChangesAsync();

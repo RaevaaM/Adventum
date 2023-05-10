@@ -9,9 +9,9 @@ namespace Adventum.Controllers
     public class EventReservationsController : Controller
     {
         private readonly AdventureContext _context;
-        private readonly UserManager<IdentityUser> _userManager;
+        private readonly UserManager<User> _userManager;
 
-        public EventReservationsController(AdventureContext context, UserManager<IdentityUser> userManager)
+        public EventReservationsController(AdventureContext context, UserManager<User> userManager)
         {
             _context = context;
             _userManager = userManager;
@@ -22,7 +22,7 @@ namespace Adventum.Controllers
         {
             string currentUser = _userManager.GetUserId(User);
 
-            IQueryable<EventReservation> query = User.IsInRole("Admin")
+            IQueryable<EventReservation> query = User.IsInRole(Constants.AdministratorRole)
                 ? _context.EventReservations.AsQueryable()
                 : _context.EventReservations.Where(x => x.UserId == currentUser);
 

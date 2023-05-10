@@ -16,8 +16,8 @@ builder.Services.AddDbContext<AdventureContext>(options =>
 
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
-builder.Services.AddDefaultIdentity<User>(options => 
-options.SignIn.RequireConfirmedAccount = false)
+builder.Services.AddDefaultIdentity<User>()
+    .AddRoles<IdentityRole>()
     .AddEntityFrameworkStores<AdventureContext>();
 
 builder.Services.AddControllersWithViews(options => 
