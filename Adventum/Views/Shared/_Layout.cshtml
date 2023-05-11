@@ -23,39 +23,64 @@
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
-                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Начало</a>
+                        </li>
+      
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Галерия</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Events" asp-action="Index">Privacy</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Видео</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Контакти</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">За нас</a>
                         </li>
                         @if (SignInManager.IsSignedIn(User))
                         {
                             @if (User.IsInRole("User"))
                             {
                                 <li class="nav-item">
-                                    <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Reservations</a>
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Резервации</a>
                                 </li>
                             }
                             @if (User.IsInRole(Constants.AdministratorRole))
                             {
                                 <li class="nav-item">
-                                    <a class="nav-link text-dark" asp-area="Account" asp-controller="User" asp-action="Index">Users</a>
+                                    <a class="nav-link text-dark" asp-area="Account" asp-controller="User" asp-action="Index">Потребители</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link text-dark" asp-area="" asp-controller="Events" asp-action="Index">Events</a>
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Events" asp-action="Index">Събития</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link text-dark" asp-area="" asp-controller="EventReservations" asp-action="Index">Event Reservations</a>
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="EventReservations" asp-action="Index">Резервации</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link text-dark" asp-area="" asp-controller="Locations" asp-action="Index">Locations</a>
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Locations" asp-action="Index">Локации</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link text-dark" asp-area="" asp-controller="SportActivities" asp-action="Index">Sport Activities</a>
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="SportActivities" asp-action="Index">Спортни активности</a>
                                 </li>
                             }
                         }
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right RSL">
+                        <form class="navbar-form navbar-right" asp-action="">
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="Search">
+                                <div class="input-group-btn">
+                                    <button class="btn btn-default" type="submit">
+                                        <i class="bi bi-search"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                        <li class="nav-item">
+                            <button type="button" class="btn btn-outline-secondary" id="book-btn"><a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">РЕЗЕРВАЦИИ</a></button>
+                        </li>
                     </ul>
                     <partial name="_LoginPartial" />
                 </div>
