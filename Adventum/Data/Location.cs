@@ -1,14 +1,17 @@
-﻿namespace Adventum.Data
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace Adventum.Data
 {
     public class Location
     {
+        [Key]
         public int Id { get; set; }
 
         public string Name { get; set; }
 
-        public decimal Latitude { get; set; }
+        public string Latitude { get; set; }
 
-        public decimal Longtitude { get; set; }
+        public string Longitude { get; set; }
 
         public virtual ICollection<Event> Events { get; set; }
     }

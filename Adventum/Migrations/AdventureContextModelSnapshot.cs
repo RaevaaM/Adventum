@@ -74,10 +74,12 @@ namespace Adventum.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<decimal>("Latitude")
+                    b.Property<string>("Latitude")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<decimal>("Longtitude")
+                    b.Property<string>("Longitude")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Name")

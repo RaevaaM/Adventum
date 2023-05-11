@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Adventum.Migrations
 {
     [DbContext(typeof(AdventureContext))]
-    [Migration("20230430110101_add_name_to_locations")]
-    partial class add_name_to_locations
+    [Migration("20230511151552_Change_Location_Types")]
+    partial class Change_Location_Types
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -77,10 +77,12 @@ namespace Adventum.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<decimal>("Latitude")
+                    b.Property<string>("Latitude")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<decimal>("Longitude")
+                    b.Property<string>("Longitude")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Name")

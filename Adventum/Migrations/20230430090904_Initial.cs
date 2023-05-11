@@ -60,7 +60,7 @@ namespace Adventum.Migrations
                     Id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     Latitude = table.Column<decimal>(type: "TEXT", nullable: false),
-                    Longtitude = table.Column<decimal>(type: "TEXT", nullable: false)
+                    Longitude = table.Column<decimal>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
                 {
