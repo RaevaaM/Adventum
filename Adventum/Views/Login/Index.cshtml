@@ -1,7 +1,7 @@
 @model  Adventum.Models.LoginModel
 
 @{
-    ViewData["Title"] = "Log in";
+    ViewData["Title"] = "Вход";
     Layout = "_Layout";
 }
 
@@ -14,12 +14,12 @@
                 <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
                 <div class="form-floating mb-3">
                     <input asp-for="@Model.Username" class="form-control" autocomplete="username" aria-required="true" placeholder="username"/>
-                    <label asp-for="@Model.Username" class="form-label">Username</label>
+                    <label asp-for="@Model.Username" class="form-label">Потребителско име</label>
                     <span asp-validation-for="@Model.Username" class="text-danger"></span>
                 </div>
                 <div class="form-floating mb-3">
                     <input asp-for="@Model.Password" class="form-control" autocomplete="current-password" aria-required="true" placeholder="password"/>
-                    <label asp-for="@Model.Password" class="form-label">Password</label>
+                    <label asp-for="@Model.Password" class="form-label">Парола</label>
                     <span asp-validation-for="@Model.Password" class="text-danger"></span>
                 </div>
                 <div class="checkbox mb-3">
@@ -29,7 +29,7 @@
                     </label>
                 </div>
                 <div>
-                    <button id="login-submit" type="submit" class="w-100 btn btn-lg btn-primary">Log in</button>
+                    <button id="login-submit" type="submit" class="w-100 btn btn-lg btn-primary">Вход</button>
                 </div>
             </form>
         </section>

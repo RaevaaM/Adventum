@@ -1,7 +1,7 @@
 @model ManageProfileModel
 
 @{
-    ViewData["Title"] = "Personal information";
+    ViewData["Title"] = "Лична информация";
     Layout = "_Layout";
 }
 
@@ -13,13 +13,13 @@
             <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
             <div class="form-floating mb-3">
                 <input asp-for="@Model.FirstName" class="form-control" placeholder="First name"/>
-                <label asp-for="@Model.FirstName">First name</label>
+                <label asp-for="@Model.FirstName">Име</label>
                 <span asp-validation-for="@Model.FirstName" class="text-danger"></span>
             </div>
             
             <div class="form-floating mb-3">
                 <input asp-for="@Model.LastName" class="form-control" placeholder="Last name"/>
-                <label asp-for="@Model.LastName">Last name</label>
+                <label asp-for="@Model.LastName">Фамилия</label>
                 <span asp-validation-for="@Model.LastName" class="text-danger"></span>
             </div>
             
@@ -32,13 +32,13 @@
             
             <div class="form-floating mb-3">
                 <input asp-for="@Model.PhoneNumber" class="form-control" placeholder="Phone number"/>
-                <label asp-for="@Model.PhoneNumber">Phone number</label>
+                <label asp-for="@Model.PhoneNumber">Телефон</label>
                 <span asp-validation-for="@Model.PhoneNumber" class="text-danger"></span>
             </div>
             
             @Html.HiddenFor(m => m.UserId)
 
-            <button id="registerSubmit" type="submit" class="w-100 btn btn-lg btn-primary">Update</button>
+            <button id="registerSubmit" type="submit" class="w-100 btn btn-lg btn-primary">Обнови</button>
         </form>
     </div>
 </div>

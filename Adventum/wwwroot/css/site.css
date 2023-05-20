@@ -2,7 +2,11 @@
 html {
   font-size: 14px;
 }
-
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
 @media (min-width: 768px) {
   html {
     font-size: 16px;
@@ -15,5 +19,190 @@ html {
 }
 
 body {
-  margin-bottom: 60px;
+    position: relative;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background-color: burlywood;
+    
+}
+body-container{
+padding-left: 0 !important;
+    padding-right: 0 !important;
+    max-width: 100%;
+}
+#welcomeIMG {
+    margin-top: -35px;
+}
+
+#homeGIF {
+    background-size: cover;
+    width: 100%;
+    height: 650px;
+}
+
+span {
+    font-family: 'Brush Script MT',cursive;
+}
+
+#nav-adv {
+    font-size: 46px;
+}
+
+#Adventum {
+    font-size: 55px;
+}
+
+#book-btn {
+    padding: 2px;
+}
+
+.sports {
+    background-color: #c9754b;
+    width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    flex: 0 0 100%;
+    /* padding-left:70px;
+        padding-right:70px;*/
+    /*padding:15px 70px 5px 70px;*/
+    padding-top: 15px;
+    padding-bottom: 15px;
+    justify-content: space-around;
+}
+
+.item {
+    position: relative;
+    flex-shrink: 0;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    text-align: center;
+}
+.snow {
+    background-image: url(../photos/snow.jfif);
+    background-repeat: no-repeat;
+    background-size: 300px 300px;
+    /*background-color:aliceblue;*/
+    width: 300px;
+    height: 300px;
+    display: inline-block;
+}
+
+.ATV {
+    background-image: url(../photos/ATV.jfif);
+    background-repeat: no-repeat;
+    background-size: 300px 300px;
+    /*background-color: aquamarine;*/
+    width: 300px;
+    height: 300px;
+    display: inline-block;
+}
+
+.rafting {
+    background-image: url(../photos/rafting.jfif);
+    background-repeat: no-repeat;
+    background-size: 300px 300px;
+    /*background-color: darkblue;*/
+    width: 300px;
+    height: 300px;
+    display: inline-block;
+}
+
+.rock {
+    background-image: url(../photos/rock.jfif);
+    background-repeat: no-repeat;
+    background-size: 300px 300px;
+    /*background-color: blue;*/
+    width: 300px;
+    height: 300px;
+    display: inline-block;
+}
+
+.bungee {
+    background-image: url(../photos/bungee.jfif);
+    background-repeat: no-repeat;
+    background-size: 300px 300px;
+    /*background-color: darkblue;*/
+    width: 300px;
+    height: 300px;
+    display: inline-block;
+}
+
+.balloon {
+    background-image: url(../photos/balloon.jfif);
+    background-repeat: no-repeat;
+    background-size: 300px 300px;
+    /*background-color: blue;*/
+    width: 300px;
+    height: 300px;
+    display: inline-block;
+}
+
+.paragliding {
+    background-image: url(../photos/paragliding.jpg);
+    background-repeat: no-repeat;
+    background-size: 300px 300px;
+    /* background-color: crimson;*/
+    width: 300px;
+    height: 300px;
+    display: inline-block;
+}
+
+.skydive {
+    background-image: url(../photos/skydiving.jfif);
+    background-repeat: no-repeat;
+    background-size: 300px 300px;
+    /*background-color: aliceblue;*/
+    width: 300px;
+    height: 300px;
+    display: inline-block;
+}
+
+.item:hover .overlay,
+.item:focus .overlay {
+    opacity: 1;
+    /* transition:opacity 1s;*/
+    /*cursor:pointer;*/
+}
+
+.overlay {
+    /* position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: .5s ease;
+    background-color: #008CBA;*/
+    opacity: 0.01;
+    min-height: 300px;
+    font-size: 1rem;
+    height: 100%;
+    padding: 30px 25px 20px;
+    transition: all 0.3s ease;
+    background: rgba(0, 0, 0, 0.7);
+    color: #fff;
+}
+
+.sport-text {
+    /* z-index:-1;
+    width:250px;
+    height:250px;
+    line-height:20px;
+    display:inline-block;
+    padding:200px 0;
+    vertical-align:middle;
+    font-family:'Agency FB';*/
+    color: white;
+    font-size: 24px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
 }

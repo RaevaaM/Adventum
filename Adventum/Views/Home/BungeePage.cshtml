@@ -1,0 +1,234 @@
+﻿@{
+    ViewData["Title"] = "БЪНДЖИ-СКОК";
+}
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/bungeePage.css" asp-append-version="true" />
+
+    <link rel="stylesheet" href="~/Adventum.styles.css" asp-append-version="true" />
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+
+</head>
+<body>
+
+    <div id="container">
+        <div id="image">
+            <img src="~/photos/bungee-png.png" />
+        </div>
+        <div class="content">
+            <h2>БЪРЗИНА</h2>
+            <h4>БЪНДЖИ-СКОК</h4>
+        </div>
+
+        <div class="icons">
+            <a href="#text1"><i class="bi bi-card-text"></i></a>
+            <a href="#events1"><i class="bi bi-list-nested"></i></a>
+            <a href="#gallery1"><i class="bi bi-images"></i></a>
+
+        </div>
+        <div class="arrows">
+            <div class="left"> <a asp-area="" asp-controller="Home" asp-action="ClimbPage"></a></div>
+            <div class="right"> <a asp-area="" asp-controller="Home" asp-action="BalloonPage"></a></div>
+        </div>
+    </div>
+
+    <section>
+
+        <div class="description" id="text1">
+
+            <h1 class="heading">ОПИСАНИЕ</h1>
+            <div class="text-box-container">
+                <div class="card-descr">
+                    <i class="bi bi-geo-alt"></i>
+                    <h5>Къде?</h5>
+                    <div class="pra">
+                        <p>
+                            Габрово, В.Търново<br />
+                            Клисура, София <br />
+                            Русе, Лом, Видин
+
+                        </p>
+                    </div>
+                </div>
+
+                <div class="card-descr">
+                    <i class="bi bi-calendar-check"></i>
+                    <h5>Кога?</h5>
+                    <div class="pra">
+                        <p>
+                            По всяко време на годината - по желание на клиента.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="card-descr">
+                    <i class="bi bi-headset-vr"></i>
+                    <h5>Екипировка</h5>
+                    <div class="pra">
+                        <p>
+                            Удобни ежедневни дрехи. На място се поставят необходимите предпазни елементи - въжета, каска и др.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="card-descr">
+                    <i class="bi bi-list"></i>
+                    <h5>Условия</h5>
+                    <div class="pra">
+                        <p>
+                            Необходима е предварителна резервация - поне 3 дни преди желаната дата за приключението.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="card-descr">
+                    <i class="bi bi-hourglass-split"></i>
+                    <h5>Времетраене</h5>
+                    <div class="pra">
+                        <p>
+                            Времетраенето е различно, в зависимост от избраната локация.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="card-descr">
+                    <i class="bi bi-exclamation-circle"></i>
+                    <h5>Ограничения</h5>
+                    <div class="pra">
+                        <p>
+                            Деца под 16 години не се допускат.<br />
+                            Деца между 16 и 18 години трябва да се придружават от родител или да имат разрешение от такъв. <br />
+                            Без проблем се допускат лица над 18 години.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h1 class="heading">СЪБИТИЯ</h1>
+        <div class="events" id="events1">
+
+            <div class="card">
+                <div class="face front">
+                    <img src="~/photos/bungee1.jfif" class="" alt="" />
+                    <h2>Скок с бънджи до Русе</h2>
+                </div>
+                <div class="face back">
+                    <h2>Скок с бънджи до Русе</h2>
+                    <p>Ако търсиш спиращи дъха гледки и събития – си дошъл на правилното място! </p>
+                    <div class="details">
+                        @*<a href="#">Виж повече</a>*@
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="card">
+                <div class="face front">
+                    <img src="~/photos/bungee2.jfif" class="" alt="" />
+                    <h2>Скок от ЖП гара Буново</h2>
+                </div>
+                <div class="face back">
+                    <h2>Скок от ЖП гара Буново</h2>
+                    <p>Животът ти ще се раздели на „преди скока“ и „след скока“.Ще се видим на моста!</p>
+                    <div class="details">@*<a href="#">Виж повече</a>*@</div>
+                </div>
+
+
+            </div>
+            <div class="card">
+                <div class="face front">
+                    <img src="~/photos/bungee3.jfif" class="" alt="" />
+                    <h2>Скок от виадукт край Клисура</h2>
+                </div>
+                <div class="face back">
+                    <h2>Скок от виадукт край Клисура</h2>
+                    <p>Със своите 70м височина Клисура е топ локация!</p>
+                    <div class="details">@*<a href="#">Виж повече</a>*@</div>
+                </div>
+
+            </div>
+
+            <div class="card">
+                <div class="face front">
+                    <img src="~/photos/bungee10.png" class="" alt="" />
+                    <h2>Скок близо до Бургас</h2>
+                </div>
+                <div class="face back">
+                    <h2>Скок близо до Бургас</h2>
+                    <p>Мостът Ковач е висок 60 метра и те очаква!</p>
+                    <div class="details">
+                        @*<a href="#">Виж повече</a>*@
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="card">
+                <div class="face front">
+                    <img src="~/photos/bungee4.jfif" class="" alt="" />
+                    <h2>Скок от В.Търново</h2>
+                </div>
+
+                <div class="face back">
+                    <h2>Скок от В.Търново</h2>
+                    <p>Скок от Стамболов мост - височина 30 метра.</p>
+                    <div class="details">
+                        @*<a href="#">Виж повече</a>*@
+                    </div>
+                </div>
+                <a></a>
+
+            </div>
+            <div class="card">
+                <div class="face front">
+                    <img src="~/photos/bungee6.jfif" class="" alt="" />
+                    <h2>Скок от Дунав мост 2</h2>
+                </div>
+
+                <div class="face back">
+                    <h2>Скок от Дунав мост 2</h2>
+                    <p>Избери да скочиш от рядко срещана локация, поеми дъх и скачай!</p>
+                    <div class="details">
+                        @*<a href="#">Виж повече</a>*@
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+
+    </section>
+
+    <section>
+
+        <div class="gallery" id="gallery1">
+            <h1 class="heading">СНИМКИ</h1>
+            <div class="g-content">
+                <a class="g-item" href=" ~ /photos/bungee5.jfif" @*data-lightbox="models" data-title=""*@>
+                    <img src="~/photos/bungee5.jfif" />
+                </a>
+                <a class="g-item" href="~/photos/bungee3.jfif" data-lightbox="models" data-title="ATV до София"><img src="~/photos/bungee3.jfif" /></a>
+                <a class="g-item" href="~/photos/bungee8.jfif" data-lightbox="models" data-title="Офроуд до Боровец"><img src="~/photos/bungee8.jfif" /></a>
+                <a class="g-item" href="~/photos/bungee1.jfif" data-lightbox="models" data-title="Каране около В.Търново"><img src="~/photos/bungee1.jfif" /></a>
+                <a class="g-item" href="~/photos/bungee7.jfif" data-lightbox="models" data-title="Преход из Родопите"><img src="~/photos/bungee7.jfif" /></a>
+                <a class="g-item" href="~/photos/bungee9.jfif" data-lightbox="models" data-title="Преход до Добринище"><img src="~/photos/bungee9.jfif" /></a>
+                <a class="g-item" href="~/photos/bungee2.jfif" data-lightbox="models" data-title="Офроуд във В.Търново и околностите"><img src="~/photos/bungee2.jfif" /></a>
+                <a class="g-item" href="~/photos/bungee10.png" data-lightbox="models" data-title="Каране край Белоградчик"><img src="~/photos/bungee10.png" /></a>
+
+            </div>
+
+            <div class="popup-img">
+                <div class="alert alert-success alert-dismissible">
+                    @* <span>&times;</span>*@
+                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                    <img src="~/photos/bungee5.jfif" />
+                </div>
+            </div>
+        </div>
+    </section>
+</body>

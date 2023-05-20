@@ -1,0 +1,76 @@
+﻿@{
+    ViewData["Title"] = "Видео";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Adventum</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/video.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/Adventum.styles.css" asp-append-version="true" />
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+</head>
+<body>
+    <div class="container">
+        <h1 class="heading">Видео</h1>
+
+        <ul class="gallery">
+            <li class="filter active" data-filter="all">Всички</li>
+            <li class="filter" data-filter="air">Въздушни</li>
+            <li class="filter" data-filter="jump">Бънджи</li>
+            <li class="filter" data-filter="snowing">Снежни</li>
+            <li class="filter" data-filter="water">Рафтинг</li>
+            <li class="filter" data-filter="climb">Катерене</li>
+            <li class="filter" data-filter="atv">АТВ</li>
+        </ul>
+
+        <div class="video-container">
+            <div class="video atv">
+                <video src="~/videos/atv_-_bs.mp4" type="video/mp4" data-item="atv" muted controls />
+            </div>
+            <div class="video snowing">
+                <video src="~/videos/borovets_-_trailer.mp4" type="video/mp4" data-item="snowing" muted controls />
+            </div>
+            <div class="video jump">
+                <video src="~/videos/bungee_balloon.mp4" type="video/mp4" data-item="jump" muted controls />
+            </div>
+            <div class="video snowing">
+                <video src="~/videos/couple_snowmobiles.mp4" type="video/mp4" data-item="snowing" muted controls />
+            </div>
+            <div class="video air">
+                <video src="~/videos/hot_air_balloon_flight_.mp4" type="video/mp4" data-item="air" muted controls />
+            </div>
+            <div class="video climb">
+                <video src="~/videos/rock_climbing.mp4" type="video/mp4" data-item="climb" muted controls />
+            </div>
+            <div class="video water">
+                <video src="~/videos/rafting_arda.mp4" type="video/mp4" data-item="water" muted controls />
+            </div>
+            <div class="video jump">
+                <video src="~/videos/bungee_klisura.mp4" type="video/mp4" data-item="jump" muted controls />
+            </div>
+            <div class="video climb">
+                <video src="~/videos/rock_climbing_-_m.mp4" type="video/mp4" data-item="climb" muted controls />
+            </div>
+            <div class="video water">
+                <video src="~/videos/rafting_tara_.mp4" type="video/mp4" data-item="water" muted controls />
+            </div>
+            <div class="video air">
+                <video src="~/videos/skydive.mp4" type="video/mp4" data-item="air" muted controls />
+            </div>
+            <div class="video atv">
+                <video src="~/videos/atv_-_veliko_tarnovo.mp4" type="video/mp4" data-item="atv" muted controls />
+            </div>
+        </div>
+
+        <div class="popup-video">
+            <span>&times;</span>
+            <video src="~/videos/atv_-_bs.mp4" type="video/mp4" muted autoplay controls />
+        </div>
+    </div>
+
+    <script type="module" src="/js/video.js"></script>
+</body>
+</html>
