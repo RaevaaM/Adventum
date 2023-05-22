@@ -71,7 +71,14 @@ namespace Adventum.Controllers
         {
             return View();
         }
-       
+        public IActionResult Booking()
+        {
+            return View();
+        }
+        public IActionResult Booking2()
+        {
+            return View();
+        }
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
