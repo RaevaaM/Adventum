@@ -1,4 +1,4 @@
-﻿@model Adventum.Models.RegisterModel
+﻿@model Adventum.Controllers.UserReservationModel
 
 @{
     ViewData["Title"] = "РЕЗЕРВАЦИЯ";
@@ -19,43 +19,40 @@
         <div class="col-12 col-md-8 col-lg-6 col-xl-5">
                   
             <div class="card text-white" style="border-radius:1rem;">
-                <form asp-controller="Home" asp-action="Booking2" method="post">
+                <form asp-controller="EventReservations" asp-action="Create" method="post">
                     <h2 class="heading" style="text-align:center; padding-top:10px;">РЕЗЕРВИРАЙ СЕГА!</h2>
                     <div class="form-outline form-white mb-5" style="padding:0 10px; padding-bottom:-5px;">
-                        <label asp-for="@Model.FirstName">Име</label>
-                        <input asp-for="@Model.FirstName" class="form-control" autocomplete="username" aria-required="true" placeholder="Име" />
-
+                        <label asp-for="@Model.FirstName"></label>
+                        <input asp-for="@Model.FirstName" class="form-control" aria-required="true" placeholder="Име" readonly />
                         <span asp-validation-for="@Model.FirstName" class="text-danger"></span>
                     </div>
 
                     <div class="form-outline form-white mb-5" style="padding:0 10px; padding-bottom:-5px;">
-                        <label asp-for="@Model.LastName">Фамилия</label>
-                        <input asp-for="@Model.LastName" class="form-control" autocomplete="username" aria-required="true" placeholder="Фамилия" />
-
+                        <label asp-for="@Model.LastName"></label>
+                        <input asp-for="@Model.LastName" class="form-control" aria-required="true" placeholder="Фамилия" readonly />
                         <span asp-validation-for="@Model.LastName" class="text-danger"></span>
                     </div>
 
                     <div class="form-outline form-white mb-5" style="padding:0 10px; padding-bottom:-5px;">
-                        <label asp-for="@Model.Email">Email</label>
-                        <input asp-for="@Model.Email" class="form-control" autocomplete="username" aria-required="true" placeholder="Email" />
-
+                        <label asp-for="@Model.Email"></label>
+                        <input asp-for="@Model.Email" class="form-control" aria-required="true" placeholder="Email" readonly />
                         <span asp-validation-for="@Model.Email" class="text-danger"></span>
                     </div>
 
                     <div class="form-outline form-white mb-5" id="customDays" style="padding:0 10px; padding-bottom:-5px;">
-                        <label for="date">Избери дата</label>
-                        <input class="form-control" autocomplete="username" aria-required="true" placeholder="Date" id="Дата"/>
-                    
-                        <span asp-validation-for="@Model.FirstName" class="text-danger"></span>
+                        <label asp-for="Date"></label>
+                        <input asp-for="Date" class="form-control" aria-required="true" placeholder="Date"/>
+                        <span asp-validation-for="@Model.Date" class="text-danger"></span>
                     </div>
                
                     <div class="form-outline form-white mb-5" style="padding:0 10px; padding-bottom:-5px;">
-                        <label asp-for="@Model.FirstName">Брой участници</label>
-                        <input asp-for="@Model.FirstName" class="form-control" autocomplete="username" aria-required="true" placeholder="Участници" />
-
-                        <span asp-validation-for="@Model.FirstName" class="text-danger"></span>
+                        <label asp-for="@Model.ParticipantCount">Брой участници</label>
+                        <input asp-for="@Model.ParticipantCount" class="form-control" aria-required="true" placeholder="Участници" />
+                        <span asp-validation-for="@Model.ParticipantCount" class="text-danger"></span>
                     </div>
-
+                    
+                    @Html.HiddenFor(m => m.UserId)
+                    @Html.HiddenFor(m => m.SportActivityId)
                     <div id="submit" style="text-align:center;padding-bottom:10px;">
                         <button type="submit" class="btn btn-outline-light btn-lg px-5">Резервирай</button>
                     </div>

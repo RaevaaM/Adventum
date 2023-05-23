@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Adventum.Models.EventReservationModel>
+﻿@model IEnumerable<Adventum.Data.EventReservation>
 
 @{
     ViewData["Title"] = "Резервации";
@@ -6,33 +6,47 @@
 
 <h1>@ViewData["Title"]</h1>
 
-<table class="table">
+<table class="table table-bordered">
     <thead>
     <tr>
-        <th>@Html.DisplayNameFor(model => model.UserFullName)</th>
-        <th>@Html.DisplayNameFor(model => model.EventName)</th>
-        <th>@Html.DisplayNameFor(model => model.Location)</th>
-        <th>Actions</th>
+        @if (User.IsInRole(Constants.AdministratorRole))
+        {
+            <th>Потребител</th>
+        }
+        <th>@Html.DisplayNameFor(model => model.Event.Name)</th>
+        <th>@Html.DisplayNameFor(model => model.Event.Description)</th>
+        <th>@Html.DisplayNameFor(model => model.Event.Location.Name)</th>
+        <th>@Html.DisplayNameFor(model => model.Event.SportActivity.Name)</th>
+        <th>@Html.DisplayNameFor(model => model.ParticipantsCount)</th>
+        <th>@Html.DisplayNameFor(model => model.Date)</th>
+
+        @if (User.IsInRole(Constants.AdministratorRole))
+        {
+            <th>Actions</th>
+        }
     </tr>
     </thead>
     <tbody>
     @foreach (var item in Model)
     {
         <tr>
-            <td>@Html.DisplayFor(modelItem => item.UserFullName)</td>
-            <td>@Html.DisplayFor(modelItem => item.EventName)</td>
-            <td>
-                <p>
-                    @item.Location.Name at (@item.Location.Latitude; @item.Location.Longitude)
-                </p>
-            </td>
-            <td>
-                <a asp-action="Details" asp-route-id="@item.EventReservationId">Детайли</a>
-                @if (User.IsInRole(Constants.AdministratorRole))
-                {
-                    <a asp-action="Delete" asp-route-id="@item.EventReservationId">Изтрий</a>
-                }
-            </td>
+            @if (User.IsInRole(Constants.AdministratorRole))
+            {
+                <td>@item.User.FirstName @item.User.LastName</td>
+            }
+            <td>@item.Event.Name</td>
+            <td>@item.Event.Description</td>
+            <td>@item.Event.Location?.Name </td>
+            <td>@item.Event.SportActivity.Name</td>
+            <td>@item.ParticipantsCount</td>
+            <td>@Html.DisplayFor(m => item.Date)</td>
+
+            @if (User.IsInRole(Constants.AdministratorRole))
+            {
+                <td>
+                    <a class="text text-danger" asp-action="Delete" asp-route-id="@item.Id">Изтрий</a>
+                </td>
+            }
         </tr>
     }
     </tbody>

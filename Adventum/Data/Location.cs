@@ -7,6 +7,7 @@ namespace Adventum.Data
         [Key]
         public int Id { get; set; }
 
+        [Display(Name = "Местоположение")]
         public string Name { get; set; }
 
         public string Latitude { get; set; }
