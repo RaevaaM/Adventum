@@ -80,7 +80,7 @@ namespace Adventum.Migrations
                     b.Property<decimal>("Latitude")
                         .HasColumnType("TEXT");
 
-                    b.Property<decimal>("Longtitude")
+                    b.Property<decimal>("Longitude")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Name")

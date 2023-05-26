@@ -1,0 +1,63 @@
+@model Adventum.Models.RegisterModel
+
+@{
+    ViewData["Title"] = "Регистрация";
+    Layout = "_Layout";
+}
+
+<div class="row d-flex justify-content-center align-items-center h-100">
+    <div class=" col-12 col-md-8 col-lg-6 col-xl-5">
+        <section class="card bg-dark text-white" style="border-radius:1rem;">
+        <form asp-controller="Login" asp-action="Register" method="post">
+                <h2 class="fw-bold mb-2 text-uppercase" style="text-align:center; padding-top:10px;">Създай нов акаунт.</h2>
+            <hr/>
+            <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
+                <div class="form-outline form-white mb-5" style="padding:0 10px; padding-bottom:-5px;">
+                    <label asp-for="@Model.Username">Потребителско име</label>
+                <input asp-for="@Model.Username" class="form-control" autocomplete="username" aria-required="true" placeholder="Username"/>
+               
+                <span asp-validation-for="@Model.Username" class="text-danger"></span>
+            </div>
+
+                <div class="form-outline form-white mb-5" style="padding:0 10px; padding-bottom:-5px;">
+                    <label asp-for="@Model.Email">Email</label>
+                <input asp-for="@Model.Email" class="form-control" autocomplete="username" aria-required="true" placeholder="name@example.com"/>
+                
+                <span asp-validation-for="@Model.Email" class="text-danger"></span>
+            </div>
+
+                <div class="form-outline form-white mb-5" style="padding:0 10px;">
+                    <label asp-for="@Model.FirstName">Име</label>
+                <input asp-for="@Model.FirstName" class="form-control" autocomplete="username" aria-required="true" placeholder="First name"/>
+                
+                <span asp-validation-for="@Model.FirstName" class="text-danger"></span>
+            </div>
+
+                <div class="form-outline form-white mb-5" style="padding:0 10px;">
+                    <label asp-for="@Model.FirstName">Фамилия</label>
+                <input asp-for="@Model.LastName" class="form-control" autocomplete="username" aria-required="true" placeholder="Last name"/>
+                <span asp-validation-for="@Model.LastName" class="text-danger"></span>
+            </div>
+                <div class="form-outline form-white mb-5" style="padding:0 10px;">
+                    <label asp-for="@Model.Password">Парола</label>
+                <input asp-for="@Model.Password" class="form-control" autocomplete="new-password" aria-required="true" placeholder="password"/>
+                
+                <span asp-validation-for="@Model.Password" class="text-danger"></span>
+            </div>
+                <div class="form-outline form-white mb-5" style="padding:0 10px;">
+                    <label asp-for="@Model.ConfirmPassword">Потвърди паролата</label>
+                <input asp-for="@Model.ConfirmPassword" class="form-control" autocomplete="new-password" aria-required="true" placeholder="password"/>
+                
+                <span asp-validation-for="@Model.ConfirmPassword" class="text-danger"></span>
+            </div>
+                <div style="text-align:center;padding-bottom:10px;">
+                <button id="registerSubmit" type="submit" class="btn btn-outline-light btn-lg px-5">Регистрирай се</button>
+                </div>
+            </form>
+        </section>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial"/>
+}

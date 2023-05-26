@@ -1,0 +1,57 @@
+@model  Adventum.Models.LoginModel
+
+@{
+    ViewData["Title"] = "Вход";
+    Layout = "_Layout";
+}
+@*<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Adventum</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/Adventum.styles.css" asp-append-version="true" />
+</head>*@
+
+<div class="row d-flex justify-content-center align-items-center h-100">
+    <div class=" col-12 col-md-8 col-lg-6 col-xl-5">
+        <section class="card bg-dark text-white" style="border-radius:1rem;">
+            <form asp-action="Index" method="post">
+                <h2 class="fw-bold mb-2 text-uppercase" style="text-align:center;">@ViewData["Title"]</h2>
+                <hr/>
+                <p class="text-white-50 mb-5" style="text-align:center;">Моля, въведи своето потребителско име и парола!</p>
+                
+                <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
+                <div class="form-outline form-white mb-5" style="padding:0 10px;">
+                    <label asp-for="@Model.Username" class="form-label">Потребителско име</label>
+                    <input asp-for="@Model.Username" class="form-control form-control-lg" autocomplete="username" aria-required="true" placeholder="username" />
+                    <span asp-validation-for="@Model.Username" class="text-danger"></span>
+                </div>
+                <div class="form-outline form-white mb-5 " style="padding:0 10px;">
+                    <label asp-for="@Model.Password" class="form-label">Парола</label>
+                    <input asp-for="@Model.Password" class="form-control form-control-lg" autocomplete="current-password" aria-required="true" placeholder="password" />
+                    <span asp-validation-for="@Model.Password" class="text-danger"></span>
+                </div>
+                <div class=" mb-3 pb-lg-2" style="display:flex; justify-content:space-around;">
+                    <label asp-for="@Model.RememberMe" class="checkbox form-label text-white-50">
+                        <input class="form-check-input" asp-for="@Model.RememberMe"/>
+                        @Html.DisplayNameFor(m => m.RememberMe)
+                    </label>
+                    <p class="">
+                        Нямаш акаунт? <a asp-action="Register" class="text-white-50 fw-bold">Регистрирай се!</a>
+                    </p>
+                </div>
+                <div style="text-align:center;padding-bottom:10px;">
+                    <button id="login-submit" type="submit" class="btn btn-outline-light btn-lg px-5" >Вход</button>
+                </div>
+            </form>
+        </section>
+    </div>
+</div>
+
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial"/>
+}

@@ -1,0 +1,144 @@
+﻿@{
+    ViewData["Title"] = "Контакти";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Adventum</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/contacts.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/Adventum.styles.css" asp-append-version="true" />
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+</head>
+<body>
+    <section class="contacts container-fluid bg-grey">
+        <div class=content>
+            <h1 class="heading">Контакти</h1>
+            <p>
+                Ще се радваме, ако имате някакви идеи или въпроси да се обърнете към нас.
+                Отговаряме в рамките на 24ч.
+            </p>
+        </div>
+        <div class="container">
+            <div class="contact-info">
+                <div class="box">
+                    <div class="icon">
+                        <i class="bi bi-geo-alt" aria-hidden="true"></i>
+                    </div>
+                    <div class="text">
+                        <h3>Адрес</h3>
+                        <p>
+                            бул."3-ти март" №140, <br /> София, България
+                        </p>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="icon">
+                        <i class="bi bi-telephone" aria-hidden="true"></i>
+                    </div>
+                    <div class="text">
+                        <h3>Телефон</h3>
+                        <p>
+                            +359 123 123 123
+                        </p>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="icon">
+                        <i class="bi bi-envelope" aria-hidden="true"></i>
+                    </div>
+                    <div class="text">
+                        <h3>Email</h3>
+                        <p>
+                            adventum@gmail.com
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="contact-form">
+                <form>
+                    <h2>Изпрати съобщение</h2>
+                    <div class="inputBox">
+                        <input type="text" name="" required />
+                        <span class="form-text">Имена</span>
+                    </div>
+                    <div class="inputBox">
+                        <input type="text" name="" required />
+                        <span class="form-text">Имейл</span>
+                    </div>
+                    <div class="inputBox">
+                        <input type="text" name="" required />
+                        <span class="form-text">Напишете Вашето съобщение...</span>
+                    </div>
+                    <div class="inputBox">
+                        <input type="submit" name="" value="Send" />
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+    <div id="content-map">
+        <div id="map">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d11736.868133612401!2d24.7459606!3d42.656756!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40a997279d5eee63%3A0x30c9e27df1c7136b!2z0J_RgNC-0YTQtdGB0LjQvtC90LDQu9C90LAg0LPQuNC80L3QsNC30LjRjyAi0JPQtdC9LiDQktC70LDQtNC40LzQuNGAINCX0LDQuNC80L7QsiI!5e0!3m2!1sbg!2sbg!4v1681736078677!5m2!1sbg!2sbg" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    </div>
+    <section>
+        <h2 class="titleFAQ">Често задавани въпроси</h2>
+        <div class="faq">
+            <div class="question" id="#q1">
+                <button>
+                    <h3>Какво е Adventum?</h3>
+                    <ion-icon name="add-outline"></ion-icon>
+                </button>
+                <p>
+                    <span>Adventum</span> е сайт за резервиране на екстремни събития, включващи различни екстремни спортове.
+                </p>
+            </div>
+            <div class="question" id="#q2">
+                <button>
+                    <h3>Не съм навършил/а 18 години, мога ли да скоча с бънджи?</h3>
+                    <ion-icon name="add-outline"></ion-icon>
+
+                </button>
+
+                <p>
+                    Ако не си навършил/а 18 години все още, трябва да имаш позволението от родител/настойник,
+                    както и да бъдеш придружен/а от него, независимо от спорта, който искаш да практикуваш.
+                </p>
+            </div>
+
+            <div class="question" id="#q3">
+                <button>
+                    <h3>Има ли значение теглото?</h3>
+                    <ion-icon name="add-outline"></ion-icon>
+                </button>
+                <p>Има значение. Минималните килограми са <span>40кг</span>, а ако клиентът тежи повече от <span>100кг</span> трябва да предупреди предварително екипа.</p>
+            </div>
+
+            <div class="question" id="#q4">
+                <button>
+                    <h3>Как да си запазя час/ден?</h3>
+                    <ion-icon name="add-outline"></ion-icon>
+
+                </button>
+                <p>Резервация се прави от страницата за резервиране - бутон <span>РЕЗЕРВАЦИИ</span>. Избираш спорт, локация, удобен ден и ние ще се свържем с теб по имейл за допълнителна информация.</p>
+            </div>
+
+            <div class="question" id="#q5">
+                <button>
+                    <h3>Каква е валидността на ваучера?</h3>
+                    <ion-icon name="add-outline"></ion-icon>
+
+                </button>
+                <p>Валидността на ваучера е <span>1 година</span> от деня на закупуването на ваучера.</p>
+            </div>
+        </div>
+
+    </section>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script type="module" src="/js/contacts.js"></script>
+</body>
+</html>

@@ -1,0 +1,248 @@
+﻿
+@model IEnumerable<Event>
+@{
+    ViewData["Title"] = "РЕЗЕРВИРАЙ";
+}
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/booking.css" asp-append-version="true" />
+
+    <link rel="stylesheet" href="~/Adventum.styles.css" asp-append-version="true" />
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+
+</head>
+<body>
+    <div class="container">
+        @foreach (var item in Model)
+        {
+            <div class="item-container">
+                <div class="img-container">
+                    <img src="~/photos/@item.ImageUrl" />
+                </div>
+                <div class="body-container">
+                    <div class="overlay">
+                    </div>
+
+                    <div class="event-info">
+                        <p class="title">@item.Name</p>
+                        <div class="separator"></div>
+                        <p class="info">@item.ShortDescription</p>
+                        <p class="price">@item.Price</p>
+
+                        <div class="additional-info">
+                            <p class="info"><i class="bi bi-geo-alt"></i>@item.Location.Name</p>
+                            <p class="info"><i class="bi bi-stopwatch"></i>@item.Duration</p>
+
+                            <p class="info descr">
+                                @item.Description
+                            </p>
+                        </div>
+
+                    </div>
+                    <a class="action" asp-controller="EventReservations" asp-action="Create" asp-route-sportActivityId="@item.SportActivityId">Резервирай</a>
+                </div>
+            </div>
+        }
+       
+
+   @*     <div class="item-container">
+            <div class="img-container">
+                <img src="~/photos/para1.jfif" />
+            </div>
+            <div class="body-container">
+                <div class="overlay">
+                </div>
+
+                <div class="event-info">
+                    <p class="title">С парапланер над Перник</p>
+                    <div class="separator"></div>
+                    <p class="info">около Вискяр планина</p>
+                    <p class="price">85лв</p>
+
+                    <div class="additional-info">
+                        <p class="info"><i class="bi bi-geo-alt"></i>около Вискяр планина, до с.Расник</p>
+                        <p class="info"><i class="bi bi-stopwatch"></i>10-30 мин</p>
+
+                        <p class="info descr">
+                            Тандемен полет с парапланер - Вискяр, Перник
+                        </p>
+                    </div>
+
+                </div>
+                <button class="action"><a asp-controller="EventReservations" asp-action="Create">Резервирай</a></button>
+            </div>
+        </div>
+
+        <div class="item-container">
+            <div class="img-container">
+                <img src="~/photos/snow5.jfif" />
+            </div>
+            <div class="body-container">
+                <div class="overlay">
+                </div>
+
+                <div class="event-info">
+                    <p class="title">С моторна шейна из Рила</p>
+                    <div class="separator"></div>
+                    <p class="info">близо до Рилските езера</p>
+                    <p class="price">179лв</p>
+
+                    <div class="additional-info">
+                        <p class="info"><i class="bi bi-geo-alt"></i>около Паничище, Рилски езера</p>
+                        <p class="info"><i class="bi bi-stopwatch"></i>1-3 часа</p>
+
+                        <p class="info descr">
+                            Стани част от потресаващата красота на Рила планина.
+                        </p>
+                    </div>
+
+                </div>
+                <button class="action"><a asp-controller="EventReservations" asp-action="Create" asp-area="">Резервирай</a></button>
+            </div>
+        </div>*@
+@*
+        <div class="item-container">
+            <div class="img-container">
+                <img src="~/photos/skydive9.jfif" />
+            </div>
+            <div class="body-container">
+                <div class="overlay">
+                </div>
+
+                <div class="event-info">
+                    <p class="title">Скок над София</p>
+                    <div class="separator"></div>
+                    <p class="info">в близост до София</p>
+                    <p class="price">390лв</p>
+
+                    <div class="additional-info">
+                        <p class="info"><i class="bi bi-geo-alt"></i>в близост до София (Сапарева баня)</p>
+                        <p class="info"><i class="bi bi-stopwatch"></i>5-10 мин</p>
+
+                        <p class="info descr">
+                            Задължително приключение за всеки любител на адреналина!
+                        </p>
+                    </div>
+
+                </div>
+                <button class="action">Резервирай</button>
+            </div>
+        </div>
+
+        <div class="item-container">
+            <div class="img-container">
+                <img src="~/photos/bungee8.jfif" />
+            </div>
+            <div class="body-container">
+                <div class="overlay">
+                </div>
+
+                <div class="event-info">
+                    <p class="title">Скок от ЖП мост Буново</p>
+                    <div class="separator"></div>
+                    <p class="info">с. Буново</p>
+                    <p class="price">60лв</p>
+
+                    <div class="additional-info">
+                        <p class="info"><i class="bi bi-geo-alt"></i>с. Буново</p>
+                        <p class="info"><i class="bi bi-stopwatch"></i>8-10 мин</p>
+
+                        <p class="info descr">
+                            Избери да скочиш от рядко срещана и интересна локация.
+                        </p>
+                    </div>
+
+                </div>
+                <button class="action">Резервирай</button>
+            </div>
+        </div>
+
+        <div class="item-container">
+            <div class="img-container">
+                <img src="~/photos/balloon.jfif" />
+            </div>
+            <div class="body-container">
+                <div class="overlay">
+                </div>
+
+                <div class="event-info">
+                    <p class="title">Полет с балон над Белоградчик</p>
+                    <div class="separator"></div>
+                    <p class="info">в района на Белоградчик</p>
+                    <p class="price">280лв</p>
+
+                    <div class="additional-info">
+                        <p class="info"><i class="bi bi-geo-alt"></i>Белоградчишки скали</p>
+                        <p class="info"><i class="bi bi-stopwatch"></i>30-60 мин</p>
+
+                        <p class="info descr">
+                            Впусни се в едно от най-безопасните въздушни приключения – 
+                            полет с топловъздушен балон над Белоградчик.
+                        </p>
+                    </div>
+
+                </div>
+                <button class="action">Резервирай</button>
+            </div>
+        </div>
+
+        <div class="item-container">
+            <div class="img-container">
+                <img src="~/photos/rafting3.jfif" />
+            </div>
+            <div class="body-container">
+                <div class="overlay">
+                </div>
+
+                <div class="event-info">
+                    <p class="title">Рафтинг по р.Струма + въжена градина</p>
+                    <div class="separator"></div>
+                    <p class="info">рафтинг център Симитли</p>
+                    <p class="price">80лв</p>
+
+                    <div class="additional-info">
+                        <p class="info"><i class="bi bi-geo-alt"></i>Кресненско дефиле</p>
+                        <p class="info"><i class="bi bi-stopwatch"></i>около 2 часа</p>
+
+                        <p class="info descr">
+                            Наслади се на едно незабравимо, комбинирано, екстремно приключение,
+                            включващо Рафтинг и въжена градина в Кресненското дефиле.
+                        </p>
+                    </div>
+
+                </div>
+                <button class="action">Резервирай</button>
+            </div>
+        </div>
+
+        <div class="item-container">
+            <div class="img-container">
+                <img src="~/photos/rock.jfif" />
+            </div>
+            <div class="body-container">
+                <div class="overlay">
+                </div>
+
+                <div class="event-info">
+                    <p class="title">Виа ферата Мальовица</p>
+                    <div class="separator"></div>
+                    <p class="info">връх Куклата, Мальовица</p>
+                    <p class="price">315лв</p>
+
+                    <div class="additional-info">
+                        <p class="info"><i class="bi bi-geo-alt"></i>връх Куклата, Мальовица</p>
+                        <p class="info"><i class="bi bi-stopwatch"></i> 6 часа (катерене:2-3 часа) </p>
+
+                        <p class="info descr">
+                            За тези, които нямат опит в скалното катерене, но искат да усетят тръпката от алпинизма.
+                        </p>
+                    </div>
+
+                </div>
+                <button class="action">Резервирай</button>
+            </div>
+        </div>*@
+    </div>
+</body>

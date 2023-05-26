@@ -1,8 +1,71 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Adventum";
 }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Adventum</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/Adventum.styles.css" asp-append-version="true" />
+</head>
+<body>
+    <section id="welcomeIMG">
+        <img src="~/photos/homeGIF.gif" id="homeGIF" class="img-fluid" />
+    </section>
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+    <div class="sports">
+
+        <div class="item snow">
+            @*<img class="imgSport" src="~/photos/snow.jfif"/>*@
+            <div class="overlay">
+                <a asp-area="" asp-controller="Home" asp-action="SnowPage"><p class="sport-text">СКИ, СНОУБОРД, МОТОРНА ШЕЙНА</p></a>
+            </div>
+        </div>
+        <div class="item ATV">
+            @*<img class="imgSport"  src="~/photos/ATV.jfif" />*@
+            <div class="overlay">
+                <a asp-area="" asp-controller="Home" asp-action="ATVpage"><p class="sport-text">ATV РАЗХОДКА</p></a>
+            </div>
+        </div>
+        <div class=" item rafting">
+            @*<img class="imgSport" src="~/photos/rafting.jpg" />*@
+            <div class="overlay">
+                <a asp-area="" asp-controller="Home" asp-action="RaftingPage"><p class="sport-text">РАФТИНГ</p></a>
+            </div>
+        </div>
+        <div class=" item rock">
+            @*<img class="imgSport" src="~/photos/rock.jfif" />*@
+            <div class="overlay">
+                <a asp-area="" asp-controller="Home" asp-action="ClimbPage"><p class="sport-text">СКАЛНО КАТЕРЕНЕ</p></a>
+            </div>
+        </div>
+        <div class="item bungee">
+            @*<img class="imgSport" src="~/photos/bungee.jfif" />*@
+            <div class="overlay">
+                <a asp-area="" asp-controller="Home" asp-action="BungeePage"> <p class="sport-text">БЪНДЖИ СКОК</p></a>
+            </div>
+        </div>
+        <div class="item balloon">
+            @* <img class="imgSport" src="~/photos/balloon.jpg" />*@
+            <div class="overlay">
+                <a asp-area="" asp-controller="Home" asp-action="BalloonPage"><p class="sport-text">ПОЛЕТ С/СКОК ОТ БАЛОН</p></a>
+            </div>
+        </div>
+        <div class="item paragliding">
+            @*<img class="imgSport" src="~/photos/paragliding.jpg" />*@
+            <div class="overlay">
+                <a asp-area="" asp-controller="Home" asp-action="ParaPage"><p class="sport-text">ПОЛЕТ С ПАРАПЛАНЕР</p></a>
+            </div>
+        </div>
+        <div class="item skydive">
+            @*<img class="imgSport" src="~/photos/skydiving.jfif"/>*@
+            <div class="overlay">
+                <a asp-area="" asp-controller="Home" asp-action="SkydivePage"><p class="sport-text">СКОК ОТ САМОЛЕТ</p></a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

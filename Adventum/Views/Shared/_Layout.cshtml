@@ -1,4 +1,6 @@
 ﻿@using Microsoft.AspNetCore.Mvc.TagHelpers
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<User> SignInManager
 
 <!DOCTYPE html>
 <html lang="en">
@@ -12,50 +14,101 @@
 </head>
 <body>
 <header>
-    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+    <nav class="navbar navbar-expand-sm navbar-toggleable-sm sticky-top navbar-light bg-white box-shadow mb-3">
         <div class="container-fluid">
-            <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Adventum</a>
+            <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index"><span id="nav-adv">Adventum</span></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                <ul class="navbar-nav flex-grow-1">
+                <ul class="navbar-nav flex-grow-1 nav-tabs">
                     <li class="nav-item">
-                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Начало</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Gallery">Галерия</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-dark" asp-area="" asp-controller="Events" asp-action="Index">Privacy</a>
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Video">Видео</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-dark" asp-area="" asp-controller="Events" asp-action="Index">Events</a>
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Contacts">Контакти</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-dark" asp-area="" asp-controller="EventReservations" asp-action="Index">Event Reservations</a>
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="AboutUs">За нас</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-dark" asp-area="" asp-controller="Locations" asp-action="Index">Locations</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-dark" asp-area="" asp-controller="SportActivities" asp-action="Index">Sport Activities</a>
-                    </li>
+                    @if (SignInManager.IsSignedIn(User))
+                    {
+                        @if (User.IsInRole(Constants.DefaultUserRole))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="EventReservations" asp-action="Index">Резервации</a>
+                            </li>
+                        }
+                        @if (User.IsInRole(Constants.AdministratorRole))
+                        {
+                            <li class="nav-item dropdown">
+                                <a class="nav-link text-dark dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Админ</a>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a class="dropdown-item nav-link text-dark" asp-area="Account" asp-controller="User" asp-action="Index">Потребители</a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item nav-link text-dark" asp-area="" asp-controller="Events" asp-action="Index">Събития</a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item nav-link text-dark" asp-area="" asp-controller="EventReservations" asp-action="Index">Резервации</a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item nav-link text-dark" asp-area="" asp-controller="Locations" asp-action="Index">Локации</a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item nav-link text-dark" asp-area="" asp-controller="SportActivities" asp-action="Index">Спортни активности</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        }
+                    }
                 </ul>
+                
+                @if (SignInManager.IsSignedIn(User) && User.IsInRole(Constants.DefaultUserRole))
+                {
+                    <ul class="nav navbar-nav navbar-right RSL">
+                       @* <form class="navbar-form navbar-right" asp-action="">
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="Search">
+                                <div class="input-group-btn">
+                                    <button class="btn btn-default" type="submit">
+                                        <i class="bi bi-search"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </form>*@
+                        <li class="nav-item">
+                            <button type="button" class="btn btn-outline-secondary" id="book-btn">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Booking">РЕЗЕРВИРАЙ</a>
+                            </button>
+                        </li>
+                    </ul>
+                }
                 <partial name="_LoginPartial"/>
             </div>
         </div>
     </nav>
 </header>
-<div class="container">
+<div class="container body-container">
     <main role="main" class="pb-3">
         @RenderBody()
     </main>
 </div>
 
-<footer class="border-top footer text-muted">
+@*<footer class="border-top footer text-muted">
     <div class="container">
         &copy; 2023 - Adventum - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
     </div>
-</footer>
+</footer>*@
 <script src="~/lib/jquery/dist/jquery.min.js"></script>
 <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 <script src="~/js/site.js" asp-append-version="true"></script>

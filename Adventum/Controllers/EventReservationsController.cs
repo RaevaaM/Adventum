@@ -2,197 +2,116 @@
 using Microsoft.EntityFrameworkCore;
 using Adventum.Data;
 using Microsoft.AspNetCore.Identity;
-using Adventum.Models;
+using Microsoft.AspNetCore.Authorization;
 
-namespace Adventum.Controllers
+namespace Adventum.Controllers;
+
+[Authorize]
+public class EventReservationsController : Controller
 {
-    public class EventReservationsController : Controller
+    private readonly AdventureContext _context;
+    private readonly UserManager<User> _userManager;
+
+    public EventReservationsController(AdventureContext context, UserManager<User> userManager)
     {
-        private readonly AdventureContext _context;
-        private readonly UserManager<IdentityUser> _userManager;
+        _context = context;
+        _userManager = userManager;
+    }
 
-        public EventReservationsController(AdventureContext context, UserManager<IdentityUser> userManager)
+    public async Task<IActionResult> Index()
+    {
+        string currentUser = _userManager.GetUserId(User);
+
+        IQueryable<EventReservation> query = User.IsInRole(Constants.AdministratorRole)
+            ? _context.EventReservations.AsQueryable()
+            : _context.EventReservations.Where(x => x.UserId == currentUser);
+
+        List<EventReservation> result = await query
+            .Include(er => er.User)
+            .Include(er => er.Event)
+            .ThenInclude(e => e.SportActivity)
+            .ToListAsync();
+        
+        ViewBag.ImageUrl = "~/images/bungee/";
+
+        return View(result);
+    }
+
+    [HttpGet]
+    public async Task<IActionResult> Create(int sportActivityId)
+    {
+        var user = await _userManager.GetUserAsync(User);
+
+        var tomorrow = DateTime.Now.AddDays(1);
+
+        var model = new UserReservationModel
         {
-            _context = context;
-            _userManager = userManager;
+            UserId = user.Id,
+            FirstName = user.FirstName,
+            LastName = user.LastName,
+            Email = user.Email,
+            Date = tomorrow,
+            SportActivityId = sportActivityId
+        };
+
+        return View(model);
+    }
+
+
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public async Task<IActionResult> Create(UserReservationModel model)
+    {
+        var evt = await _context.Events.FirstOrDefaultAsync(e => e.SportActivityId == model.SportActivityId);
+
+        _context.EventReservations.Add(new EventReservation
+        {
+            UserId = model.UserId,
+            EventId = evt.Id,
+            Date = model.Date,
+            ParticipantsCount = model.ParticipantCount
+        });
+
+
+        await _context.SaveChangesAsync();
+
+        return RedirectToAction(nameof(Index));
+    }
+
+
+    public async Task<IActionResult> Delete(int id)
+    {
+        if (id == null || _context.EventReservations == null)
+        {
+            return NotFound();
         }
 
-        // GET: EventReservations
-        public async Task<IActionResult> Index()
+        var eventReservation = await _context.EventReservations
+            .Include(e => e.Event)
+            .Include(u => u.User)
+            .FirstOrDefaultAsync(m => m.Id == id);
+        if (eventReservation == null)
         {
-            string currentUser = _userManager.GetUserId(User);
-
-            IQueryable<EventReservation> query = User.IsInRole("Admin")
-                ? _context.EventReservations.AsQueryable()
-                : _context.EventReservations.Where(x => x.UserId == currentUser);
-
-            List<EventReservationModel> result = await query
-                .Include(er => er.Event)
-                .Include(er => er.User)
-                .Select(q => new EventReservationModel
-                {
-                    EventReservationId = q.Id,
-                    UserFullName = $"{q.User.FirstName} {q.User.LastName}",
-                    EventName = q.Event.Name,
-                    Location = q.Event.Location
-                })
-                .ToListAsync();
-
-            return View(result);
+            return NotFound();
         }
 
-        public async Task<IActionResult> Details(int id)
-        {
-            var eventReservation = await _context.EventReservations
-                .Include(e => e.Event)
-                .Include(u => u.User)
-                .FirstOrDefaultAsync(m => m.Id == id);
-            
-            return eventReservation == null ? NotFound() : View(eventReservation);
-        }
-        
-        // // GET: EventReservations/Create
-        // [Authorize(Roles = "User,Admin")]
-        // public IActionResult Create()
-        // {
-        //     //ViewData["EventId"] = new SelectList(_context.Events, "Id", "Id");
-        //     //return View();
-        //
-        //     EventReservationsVM model = new EventReservationsVM();
-        //     //EventReservation ev = new EventReservation();
-        //     model.Events = _context.Events.Select(x => new SelectListItem
-        //         {
-        //             Text = x.Name,
-        //             Value = x.Id.ToString(),
-        //             Selected = (x.Id == model.EventId)
-        //         }
-        //     ).ToList();
-        //     return View(model);
-        // }
-        //
-        // // POST: EventReservations/Create
-        // // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        // [HttpPost]
-        // [ValidateAntiForgeryToken]
-        // public async Task<IActionResult> Create([Bind("Id,EventId,UserId")] EventReservation eventReservation)
-        // {
-        //     if (!ModelState.IsValid)
-        //     {
-        //         //_context.Add(eventReservation);
-        //
-        //         EventReservationsVM model = new EventReservationsVM();
-        //         //EventReservation ev = new EventReservation();
-        //         model.Events = _context.Events.Select(x => new SelectListItem
-        //             {
-        //                 Text = x.Name,
-        //                 Value = x.Id.ToString(),
-        //                 Selected = (x.Id == model.EventId)
-        //             }
-        //         ).ToList();
-        //         return View(model);
-        //     }
-        //
-        //     EventReservation modeltoDB = new EventReservation
-        //     {
-        //         EventId = eventReservation.EventId
-        //         /*UserId=_userManager.GetUserId(User)*/,
-        //     };
-        //     _context.Add(modeltoDB);
-        //     await _context.SaveChangesAsync();
-        //     return RedirectToAction(nameof(Index));
-        // }
-        
-        
-        // // GET: EventReservations/Create
-        // [Authorize(Roles = "User,Admin")]
-        // public IActionResult Create()
-        // {
-        //     //ViewData["EventId"] = new SelectList(_context.Events, "Id", "Id");
-        //     //return View();
-        //
-        //     EventReservationsVM model = new EventReservationsVM();
-        //     //EventReservation ev = new EventReservation();
-        //     model.Events = _context.Events.Select(x => new SelectListItem
-        //     {
-        //         Text = x.Name,
-        //         Value = x.Id.ToString(),
-        //         Selected = (x.Id == model.EventId)
-        //     }
-        //     ).ToList();
-        //     return View(model);
-        // }
+        return View(eventReservation);
+    }
 
-        // // POST: EventReservations/Create
-        // // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        // [HttpPost]
-        // [ValidateAntiForgeryToken]
-        // public async Task<IActionResult> Create([Bind("Id,EventId,UserId")] EventReservation eventReservation)
-        // {
-        //     if (!ModelState.IsValid)
-        //     {
-        //         //_context.Add(eventReservation);
-        //
-        //         EventReservationsVM model = new EventReservationsVM();
-        //         //EventReservation ev = new EventReservation();
-        //         model.Events = _context.Events.Select(x => new SelectListItem
-        //         {
-        //             Text = x.Name,
-        //             Value = x.Id.ToString(),
-        //             Selected = (x.Id == model.EventId)
-        //         }
-        //         ).ToList();
-        //         return View(model);
-        //     }
-        //     EventReservation modeltoDB = new EventReservation
-        //     {
-        //         EventId = eventReservation.EventId
-        //         /*UserId=_userManager.GetUserId(User)*/,
-        //     };
-        //     _context.Add(modeltoDB);
-        //     await _context.SaveChangesAsync();
-        //     return RedirectToAction(nameof(Index));
-        //
-        //     //ViewData["EventId"] = new SelectList(_context.Events, "Id", "Id", eventReservation.EventId);
-        //     //return View(eventReservation);
-        // }
+    [HttpPost, ActionName("Delete")]
+    [ValidateAntiForgeryToken]
+    public async Task<IActionResult> DeleteConfirmed(int id)
+    {
+        var eventReservation = await _context.EventReservations
+            .Include(u => u.User)
+            .FirstOrDefaultAsync(x => x.Id == id);
 
-        // GET: EventReservations/Delete/5
-        public async Task<IActionResult> Delete(int id)
-        {
-            if (id == null || _context.EventReservations == null)
-            {
-                return NotFound();
-            }
-
-            var eventReservation = await _context.EventReservations
-                .Include(e => e.Event)
-                .Include(u => u.User)
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (eventReservation == null)
-            {
-                return NotFound();
-            }
-
-            return View(eventReservation);
-        }
-        
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
-        {
-            var eventReservation = await _context.EventReservations
-                .Include(u => u.User)
-                .FirstOrDefaultAsync(x => x.Id == id);
-
-            if (eventReservation == null)
-                return RedirectToAction(nameof(Index));
-            
-            _context.EventReservations.Remove(eventReservation);
-            await _context.SaveChangesAsync();
-
+        if (eventReservation == null)
             return RedirectToAction(nameof(Index));
-        }
+
+        _context.EventReservations.Remove(eventReservation);
+        await _context.SaveChangesAsync();
+
+        return RedirectToAction(nameof(Index));
     }
 }

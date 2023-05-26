@@ -17,8 +17,9 @@ namespace Adventum.Controllers
         // GET: Events
         public async Task<IActionResult> Index()
         {
-            var adventureContext = _context.Events.Include(e => e.Location).Include(e => e.SportActivity);
-            return View(await adventureContext.ToListAsync());
+            var events = await _context.Events.Include(e => e.Location).Include(e => e.SportActivity).ToListAsync();
+            
+            return View(events);
         }
 
         // GET: Events/Details/5
@@ -44,7 +45,7 @@ namespace Adventum.Controllers
         // GET: Events/Create
         public IActionResult Create()
         {
-            ViewData["LocationId"] = new SelectList(_context.Locations, "Id", "Id");
+            ViewData["LocationId"] = new SelectList(_context.Locations, "Id", "Name");
             ViewData["SportActivityId"] = new SelectList(_context.SportActivities, "Id", "Name");
             return View();
         }

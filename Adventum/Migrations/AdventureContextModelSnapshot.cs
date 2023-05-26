@@ -27,10 +27,25 @@ namespace Adventum.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
+                    b.Property<string>("Duration")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("ImageUrl")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
                     b.Property<int>("LocationId")
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<double>("Price")
+                        .HasColumnType("REAL");
+
+                    b.Property<string>("ShortDescription")
                         .IsRequired()
                         .HasColumnType("TEXT");
 
@@ -52,7 +67,13 @@ namespace Adventum.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("TEXT");
+
                     b.Property<int>("EventId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("ParticipantsCount")
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("UserId")
@@ -74,10 +95,12 @@ namespace Adventum.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<decimal>("Latitude")
+                    b.Property<string>("Latitude")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<decimal>("Longtitude")
+                    b.Property<string>("Longitude")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Name")

@@ -1,0 +1,237 @@
+﻿@{
+    ViewData["Title"] = "СКАЛНО КАТЕРЕНЕ";
+}
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/climbPage.css" asp-append-version="true" />
+
+    <link rel="stylesheet" href="~/Adventum.styles.css" asp-append-version="true" />
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+
+</head>
+<body>
+
+    <div id="container">
+        <div id="image">
+            <img src="~/photos/838936-middle-removebg-preview.png" />
+        </div>
+        <div class="content">
+            <h2>СТРАСТ</h2>
+            <h4>СКАЛНО КАТЕРЕНЕ</h4>
+        </div>
+
+        <div class="icons">
+            <a href="#text1"><i class="bi bi-card-text"></i></a>
+            <a href="#events1"><i class="bi bi-list-nested"></i></a>
+            <a href="#gallery1"><i class="bi bi-images"></i></a>
+
+        </div>
+        <div class="arrows">
+            <div class="left"> <a asp-area="" asp-controller="Home" asp-action="RaftingPage"></a></div>
+            <div class="right"> <a asp-area="" asp-controller="Home" asp-action="BungeePage"></a></div>
+        </div>
+    </div>
+
+    <section>
+
+        <div class="description" id="text1">
+
+            <h1 class="heading">ОПИСАНИЕ</h1>
+            <div class="text-box-container">
+                <div class="card-descr">
+                    <i class="bi bi-geo-alt"></i>
+                    <h5>Къде?</h5>
+                    <div class="pra">
+                        <p>
+                            Проходна, Клисура<br />
+                            Мальовица - Рила <br />
+                            Габровски балкан<br />
+                            Боровец, Банско
+                        </p>
+                    </div>
+                </div>
+
+                <div class="card-descr">
+                    <i class="bi bi-calendar-check"></i>
+                    <h5>Кога?</h5>
+                    <div class="pra">
+                        <p>
+                            Юли, септември, октомври, ноември
+                        </p>
+                    </div>
+                </div>
+
+                <div class="card-descr">
+                    <i class="bi bi-headset-vr"></i>
+                    <h5>Екипировка</h5>
+                    <div class="pra">
+                        <p>
+                            Туристическа раница, обувки, планинско облекло -
+                            ветро и водоустойчиво яке, ръкавици, шапка.
+                            Очила, крем за слънце, вода и храна.
+                            Предпазните елементи са от нас!
+                        </p>
+                    </div>
+                </div>
+
+                <div class="card-descr">
+                    <i class="bi bi-list"></i>
+                    <h5>Условия</h5>
+                    <div class="pra">
+                        <p>
+                            Необходима е предварителна резервация - поне 3 дни преди желаната дата за приключението.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="card-descr">
+                    <i class="bi bi-hourglass-split"></i>
+                    <h5>Времетраене</h5>
+                    <div class="pra">
+                        <p>
+                            Различно е - в зависимост от избрания маршрут.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="card-descr">
+                    <i class="bi bi-exclamation-circle"></i>
+                    <h5>Ограничения</h5>
+                    <div class="pra">
+                        <p>
+                            Деца под 12 години не се допускат.<br />
+                            Деца между 12 и 18 години трябва да се придружават от родител или да имат разрешение от такъв. <br />
+                            Без проблем се допускат лица над 18 години.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h1 class="heading">СЪБИТИЯ</h1>
+        <div class="events" id="events1">
+
+            <div class="card">
+                <div class="face front">
+                    <img src="~/photos/rock1.jfif" class="" alt="" />
+                    <h2>Катерене край Банско</h2>
+                </div>
+                <div class="face back">
+                    <h2>Катерене край Банско</h2>
+                    <p>Катерене до х.Вихрен, м. Пещерите и Тодорка</p>
+                    <div class="details">
+                        @*<a href="#">Виж повече</a>*@
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="card">
+                <div class="face front">
+                    <img src="~/photos/rock2.jfif" class="" alt="" />
+                    <h2>Скално катерене по Врачанския балкан</h2>
+                </div>
+                <div class="face back">
+                    <h2>Скално катерене по Врачанския балкан</h2>
+                    <p>Не изпускайте гледки като Стегите, Вратцата, Малката и Голямата дупка...</p>
+                    <div class="details">@*<a href="#">Виж повече</a>*@</div>
+                </div>
+
+
+            </div>
+            <div class="card">
+                <div class="face front">
+                    <img src="~/photos/rock3.jfif" class="" alt="" />
+                    <h2>Скално катерене в Боровец</h2>
+                </div>
+                <div class="face back">
+                    <h2>Скално катерене в Боровец</h2>
+                    <p>Скална формация разположена на около 200 м над коритото на река Мусаленска Бистрица.</p>
+                    <div class="details">@*<a href="#">Виж повече</a>*@</div>
+                </div>
+
+            </div>
+
+            <div class="card">
+                <div class="face front">
+                    <img src="~/photos/rock10.jfif" class="" alt="" />
+                    <h2>Екстремен ден в Клисура</h2>
+                </div>
+                <div class="face back">
+                    <h2>Екстремен ден в Клисура</h2>
+                    <p>Каньонинг и виа ферата в Клисура.</p>
+                    <div class="details">
+                        @*<a href="#">Виж повече</a>*@
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="card">
+                <div class="face front">
+                    <img src="~/photos/rock4.jfif" class="" alt="" />
+                    <h2>Скална тренироква в Рила</h2>
+                </div>
+
+                <div class="face back">
+                    <h2>Скална тренироква в Рила</h2>
+                    <p>х. Иван Вазов, х.Мальовица, х.Седемте Рилски езера и много други</p>
+                    <div class="details">
+                        @*<a href="#">Виж повече</a>*@
+                    </div>
+                </div>
+                <a></a>
+
+            </div>
+            <div class="card">
+                <div class="face front">
+                    <img src="~/photos/rock6.jfif" class="" alt="" />
+                    <h2>Катерене край Карлуково</h2>
+                </div>
+
+                <div class="face back">
+                    <h2>Катерене край Карлуково</h2>
+                    <p>Изпробвай скалите в п. Проходна!</p>
+                    <div class="details">
+                        @*<a href="#">Виж повече</a>*@
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+
+    </section>
+
+    <section>
+
+        <div class="gallery" id="gallery1">
+            <h1 class="heading">СНИМКИ</h1>
+            <div class="g-content">
+                <a class="g-item" href=" ~ /photos/rock5.jfif" @*data-lightbox="models" data-title=""*@>
+                    <img src="~/photos/rock5.jfif" />
+                </a>
+                <a class="g-item" href="~/photos/rock3.jfif" data-lightbox="models" data-title="ATV до София"><img src="~/photos/rock3.jfif" /></a>
+                <a class="g-item" href="~/photos/rock8.jfif" data-lightbox="models" data-title="Офроуд до Боровец"><img src="~/photos/rock8.jfif" /></a>
+                <a class="g-item" href="~/photos/rock1.jfif" data-lightbox="models" data-title="Каране около В.Търново"><img src="~/photos/rock1.jfif" /></a>
+                <a class="g-item" href="~/photos/rock7.jfif" data-lightbox="models" data-title="Преход из Родопите"><img src="~/photos/rock7.jfif" /></a>
+                <a class="g-item" href="~/photos/rock9.jfif" data-lightbox="models" data-title="Преход до Добринище"><img src="~/photos/rock9.jfif" /></a>
+                <a class="g-item" href="~/photos/rock2.jfif" data-lightbox="models" data-title="Офроуд във В.Търново и околностите"><img src="~/photos/rock2.jfif" /></a>
+                <a class="g-item" href="~/photos/rock10.jfif" data-lightbox="models" data-title="Каране край Белоградчик"><img src="~/photos/rock10.jfif" /></a>
+
+            </div>
+
+            <div class="popup-img">
+                <div class="alert alert-success alert-dismissible">
+                    @* <span>&times;</span>*@
+                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                    <img src="~/photos/rock5.jfif" />
+                </div>
+            </div>
+        </div>
+    </section>
+</body>

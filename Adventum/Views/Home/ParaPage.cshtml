@@ -1,0 +1,234 @@
+﻿@{
+    ViewData["Title"] = "ПОЛЕТ С ПАРАПЛАНЕР";
+}
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/paraPage.css" asp-append-version="true" />
+
+    <link rel="stylesheet" href="~/Adventum.styles.css" asp-append-version="true" />
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+
+</head>
+<body>
+
+    <div id="container">
+        <div id="image">
+            <img src="~/photos/para-png.png" />
+        </div>
+        <div class="content">
+            <h2>ПРИКЛЮЧЕНИЕ</h2>
+            <h4>ПОЛЕТ С ПАРАПЛАНЕР</h4>
+        </div>
+
+        <div class="icons">
+            <a href="#text1"><i class="bi bi-card-text"></i></a>
+            <a href="#events1"><i class="bi bi-list-nested"></i></a>
+            <a href="#gallery1"><i class="bi bi-images"></i></a>
+
+        </div>
+        <div class="arrows">
+            <div class="left"> <a asp-area="" asp-controller="Home" asp-action="BalloonPage"></a></div>
+            <div class="right"> <a asp-area="" asp-controller="Home" asp-action="SkydivePage"></a></div>
+        </div>
+    </div>
+
+    <section>
+
+        <div class="description" id="text1">
+
+            <h1 class="heading">ОПИСАНИЕ</h1>
+            <div class="text-box-container">
+                <div class="card-descr">
+                    <i class="bi bi-geo-alt"></i>
+                    <h5>Къде?</h5>
+                    <div class="pra">
+                        <p>
+                            Шумен, Мадара, Невша<br />
+                            Сопот, Карлово <br />
+                            София, Нови Искър, Бургас
+                        </p>
+                    </div>
+                </div>
+
+                <div class="card-descr">
+                    <i class="bi bi-calendar-check"></i>
+                    <h5>Кога?</h5>
+                    <div class="pra">
+                        <p>
+                            Целогодишно, по всяко време, в зависимост от метерологичните условия
+                        </p>
+                    </div>
+                </div>
+
+                <div class="card-descr">
+                    <i class="bi bi-headset-vr"></i>
+                    <h5>Екипировка</h5>
+                    <div class="pra">
+                        <p>
+                            Удобни обувки, ветероустойчиво яке и панталон.
+                            Ще бъде предоставена цялостна, професионална екипировка преди началото на всеки полет.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="card-descr">
+                    <i class="bi bi-list"></i>
+                    <h5>Условия</h5>
+                    <div class="pra">
+                        <p>
+                            Необходима е предварителна резервация - поне 3 дни преди желаната дата за приключението.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="card-descr">
+                    <i class="bi bi-hourglass-split"></i>
+                    <h5>Времетраене</h5>
+                    <div class="pra">
+                        <p>
+                            10-15 мин., в зависимост от атмосферните условия.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="card-descr">
+                    <i class="bi bi-exclamation-circle"></i>
+                    <h5>Ограничения</h5>
+                    <div class="pra">
+                        <p>
+                            Деца под 6 години не се допускат.<br />
+                            Деца между 6 и 18 години трябва да се придружават от родител или да имат разрешение от такъв. <br />
+                            Без проблем се допускат лица над 18 години.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h1 class="heading">СЪБИТИЯ</h1>
+        <div class="events" id="events1">
+
+            <div class="card">
+                <div class="face front">
+                    <img src="~/photos/para1.jfif" class="" alt="" />
+                    <h2>Полет над София</h2>
+                </div>
+                <div class="face back">
+                    <h2>Полет над София</h2>
+                    <p>Тандемен полет над Витоша и Осоговската планина</p>
+                    <div class="details">
+                        @*<a href="#">Виж повече</a>*@
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="card">
+                <div class="face front">
+                    <img src="~/photos/para2.jfif" class="" alt="" />
+                    <h2>Полет над Нови Искър</h2>
+                </div>
+                <div class="face back">
+                    <h2>Полет над Нови Искър</h2>
+                    <p>Изживей незабравим полет над Нови Искър</p>
+                    <div class="details">@*<a href="#">Виж повече</a>*@</div>
+                </div>
+
+
+            </div>
+            <div class="card">
+                <div class="face front">
+                    <img src="~/photos/para3.jfif" class="" alt="" />
+                    <h2>Полет над Сопот</h2>
+                </div>
+                <div class="face back">
+                    <h2>Полет над Сопот</h2>
+                    <p>Не изпускай известната из цял свят локация за незабравими полети!</p>
+                    <div class="details">@*<a href="#">Виж повече</a>*@</div>
+                </div>
+
+            </div>
+
+            <div class="card">
+                <div class="face front">
+                    <img src="~/photos/para10.jfif" class="" alt="" />
+                    <h2>Полет край Казанлък</h2>
+                </div>
+                <div class="face back">
+                    <h2>Полет край Казанлък</h2>
+                    <p>Вълнуващо приключение край Казанлък.</p>
+                    <div class="details">
+                        @*<a href="#">Виж повече</a>*@
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="card">
+                <div class="face front">
+                    <img src="~/photos/para4.jfif" class="" alt="" />
+                    <h2>Тандемен полет над Стара Загора</h2>
+                </div>
+
+                <div class="face back">
+                    <h2>Тандемен полет над Стара Загора</h2>
+                    <p>Наслади се на гледките над Тракийската низина!</p>
+                    <div class="details">
+                        @*<a href="#">Виж повече</a>*@
+                    </div>
+                </div>
+                <a></a>
+
+            </div>
+            <div class="card">
+                <div class="face front">
+                    <img src="~/photos/para6.jfif" class="" alt="" />
+                    <h2>Полет край Бургас</h2>
+                </div>
+
+                <div class="face back">
+                    <h2>Полет край Бургас</h2>
+                    <p>Полет над Морската градина в Бургас.</p>
+                    <div class="details">
+                        @*<a href="#">Виж повече</a>*@
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+
+    </section>
+
+    <section>
+
+        <div class="gallery" id="gallery1">
+            <h1 class="heading">СНИМКИ</h1>
+            <div class="g-content">
+                <a class="g-item" href=" ~ /photos/paragliding.jpg" @*data-lightbox="models" data-title=""*@>
+                    <img src="~/photos/paragliding.jpg" />
+                </a>
+                <a class="g-item" href="~/photos/para3.jfif" data-lightbox="models" data-title="ATV до София"><img src="~/photos/para3.jfif" /></a>
+                <a class="g-item" href="~/photos/para8.jfif" data-lightbox="models" data-title="Офроуд до Боровец"><img src="~/photos/para8.jfif" /></a>
+                <a class="g-item" href="~/photos/para1.jfif" data-lightbox="models" data-title="Каране около В.Търново"><img src="~/photos/para1.jfif" /></a>
+                <a class="g-item" href="~/photos/para7.jfif" data-lightbox="models" data-title="Преход из Родопите"><img src="~/photos/para7.jfif" /></a>
+                <a class="g-item" href="~/photos/para9.jfif" data-lightbox="models" data-title="Преход до Добринище"><img src="~/photos/para9.jfif" /></a>
+                <a class="g-item" href="~/photos/para2.jfif" data-lightbox="models" data-title="Офроуд във В.Търново и околностите"><img src="~/photos/para2.jfif" /></a>
+                <a class="g-item" href="~/photos/para10.jfif" data-lightbox="models" data-title="Каране край Белоградчик"><img src="~/photos/para10.jfif" /></a>
+
+            </div>
+
+            <div class="popup-img">
+                <div class="alert alert-success alert-dismissible">
+                    @* <span>&times;</span>*@
+                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                    <img src="~/photos/para5.jfif" />
+                </div>
+            </div>
+        </div>
+    </section>
+</body>

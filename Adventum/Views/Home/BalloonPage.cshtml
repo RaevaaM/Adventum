@@ -1,0 +1,235 @@
+﻿@{
+    ViewData["Title"] = "ПОЛЕТ ОТ/СКОК С БАЛОН";
+}
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/balloonPage.css" asp-append-version="true" />
+
+    <link rel="stylesheet" href="~/Adventum.styles.css" asp-append-version="true" />
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+
+</head>
+<body>
+
+    <div id="container">
+        <div id="image">
+            <img src="~/photos/balloon-png.png" />
+        </div>
+        <div class="content">
+            <h2>ПОЧИВКА</h2>
+            <h4>ПОЛЕТ С/СКОК ОТ БАЛОН</h4>
+        </div>
+
+        <div class="icons">
+            <a href="#text1"><i class="bi bi-card-text"></i></a>
+            <a href="#events1"><i class="bi bi-list-nested"></i></a>
+            <a href="#gallery1"><i class="bi bi-images"></i></a>
+
+        </div>
+        <div class="arrows">
+            <div class="left"> <a asp-area="" asp-controller="Home" asp-action="BungeePage"></a></div>
+            <div class="right"> <a asp-area="" asp-controller="Home" asp-action="ParaPage"></a></div>
+        </div>
+    </div>
+
+    <section>
+
+        <div class="description" id="text1">
+
+            <h1 class="heading">ОПИСАНИЕ</h1>
+            <div class="text-box-container">
+                <div class="card-descr">
+                    <i class="bi bi-geo-alt"></i>
+                    <h5>Къде?</h5>
+                    <div class="pra">
+                        <p>
+                            Белоградчик, Шумен, Мадара<br />
+                            около Пловдив - Розовата долина <br />
+                            над Родопи, Рила<br />
+                            Мелник, Нови Искър, София
+                        </p>
+                    </div>
+                </div>
+
+                <div class="card-descr">
+                    <i class="bi bi-calendar-check"></i>
+                    <h5>Кога?</h5>
+                    <div class="pra">
+                        <p>
+                            По всяко време, с предварително направена уговорка и при добри условия
+                        </p>
+                    </div>
+                </div>
+
+                <div class="card-descr">
+                    <i class="bi bi-headset-vr"></i>
+                    <h5>Екипировка</h5>
+                    <div class="pra">
+                        <p>
+                            Удобни, ветроустойчиви дрехи. Носенето на токчета не се препоръчва.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="card-descr">
+                    <i class="bi bi-list"></i>
+                    <h5>Условия</h5>
+                    <div class="pra">
+                        <p>
+                            Необходима е предварителна резервация - поне 7 дни преди желаната дата за приключението.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="card-descr">
+                    <i class="bi bi-hourglass-split"></i>
+                    <h5>Времетраене</h5>
+                    <div class="pra">
+                        <p>
+                            Опцията е от 30 мин. до 60-80 мин. Изборът е твой!
+                        </p>
+                    </div>
+                </div>
+
+                <div class="card-descr">
+                    <i class="bi bi-exclamation-circle"></i>
+                    <h5>Ограничения</h5>
+                    <div class="pra">
+                        <p>
+                            Деца под 7 години и лица под 135 см не се допускат.<br />
+                            Деца под 18 години трябва да се придружават от родител или да имат разрешение от такъв. <br />
+                            Без проблем се допускат лица над 18 години.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h1 class="heading">СЪБИТИЯ</h1>
+        <div class="events" id="events1">
+
+            <div class="card">
+                <div class="face front">
+                    <img src="~/photos/balloon1.jfif" class="" alt="" />
+                    <h2>Полет с балон над с.Кътина</h2>
+                </div>
+                <div class="face back">
+                    <h2>Полет с балон над с.Кътина</h2>
+                    <p>Не пропускай да видиш Стара планина по изгрев!</p>
+                    <div class="details">
+                        @*<a href="#">Виж повече</a>*@
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="card">
+                <div class="face front">
+                    <img src="~/photos/balloon2.jfif" class="" alt="" />
+                    <h2>Полет край Севлиево</h2>
+                </div>
+                <div class="face back">
+                    <h2>Полет край Севлиево</h2>
+                    <p>Приказни гледки към северните склонове на Стара планина и Предбалкана.</p>
+                    <div class="details">@*<a href="#">Виж повече</a>*@</div>
+                </div>
+
+
+            </div>
+            <div class="card">
+                <div class="face front">
+                    <img src="~/photos/balloon3.jfif" class="" alt="" />
+                    <h2>Полет край Габрово</h2>
+                </div>
+                <div class="face back">
+                    <h2>Полет край Габрово</h2>
+                    <p>Резервирай коша само за себе си или сподели въздушното приключение с други участници!</p>
+                    <div class="details">@*<a href="#">Виж повече</a>*@</div>
+                </div>
+
+            </div>
+
+            <div class="card">
+                <div class="face front">
+                    <img src="~/photos/balloon10.jfif" class="" alt="" />
+                    <h2>Полет над Белоградчишките скали</h2>
+                </div>
+                <div class="face back">
+                    <h2>Полет над Белоградчишките скали</h2>
+                    <p>Дори да си посещавал това място по земя, усещането е напълно различно от балон за летене.</p>
+                    <div class="details">
+                        @*<a href="#">Виж повече</a>*@
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="card">
+                <div class="face front">
+                    <img src="~/photos/balloon4.jfif" class="" alt="" />
+                    <h2>Споделен полет над Мраморните скали</h2>
+                </div>
+
+                <div class="face back">
+                    <h2>Споделен полет над Мраморните скали</h2>
+                    <p>Най-популярната локация за полет с балон в Източна България.</p>
+                    <div class="details">
+                        @*<a href="#">Виж повече</a>*@
+                    </div>
+                </div>
+                <a></a>
+
+            </div>
+            <div class="card">
+                <div class="face front">
+                    <img src="~/photos/balloon.jfif" class="" alt="" />
+                    <h2>Полет с балон над Розовата Долина </h2>
+                </div>
+
+                <div class="face back">
+                    <h2>Полет с балон над Розовата Долина </h2>
+                    <p>Прекрасна локация между Стара планина и Средна гора с перфектни условия за летене.</p>
+                    <div class="details">
+                        @*<a href="#">Виж повече</a>*@
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+
+    </section>
+
+    <section>
+
+        <div class="gallery" id="gallery1">
+            <h1 class="heading">СНИМКИ</h1>
+            <div class="g-content">
+                <a class="g-item" href=" ~ /photos/balloon5.jfif" @*data-lightbox="models" data-title=""*@>
+                    <img src="~/photos/balloon5.jfif" />
+                </a>
+                <a class="g-item" href="~/photos/balloon3.jfif" data-lightbox="models" data-title="ATV до София"><img src="~/photos/balloon3.jfif" /></a>
+                <a class="g-item" href="~/photos/balloon8.jfif" data-lightbox="models" data-title="Офроуд до Боровец"><img src="~/photos/balloon8.jfif" /></a>
+                <a class="g-item" href="~/photos/balloon1.jfif" data-lightbox="models" data-title="Каране около В.Търново"><img src="~/photos/balloon1.jfif" /></a>
+                <a class="g-item" href="~/photos/balloon7.jfif" data-lightbox="models" data-title="Преход из Родопите"><img src="~/photos/balloon7.jfif" /></a>
+                <a class="g-item" href="~/photos/balloon9.jfif" data-lightbox="models" data-title="Преход до Добринище"><img src="~/photos/balloon9.jfif" /></a>
+                <a class="g-item" href="~/photos/balloon2.jfif" data-lightbox="models" data-title="Офроуд във В.Търново и околностите"><img src="~/photos/balloon2.jfif" /></a>
+                <a class="g-item" href="~/photos/balloon10.jfif" data-lightbox="models" data-title="Каране край Белоградчик"><img src="~/photos/balloon10.jfif" /></a>
+
+            </div>
+
+            <div class="popup-img">
+                <div class="alert alert-success alert-dismissible">
+                    @* <span>&times;</span>*@
+                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                    <img src="~/photos/balloon5.jfif" />
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+

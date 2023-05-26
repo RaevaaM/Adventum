@@ -1,0 +1,25 @@
+﻿@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css");
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    position: relative;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background-color:burlywood;
+}
+
+@media screen and (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+.card{
+    background-color:#c29e75;
+}
