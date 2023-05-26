@@ -14,6 +14,8 @@ namespace Adventum.Data
         [DataType(DataType.Currency)]
         public double Price { get; set; }
 
+        public string ImageUrl { get; set; }
+
         [ForeignKey(nameof(SportActivity))]
         public int SportActivityId { get; set; }
 
