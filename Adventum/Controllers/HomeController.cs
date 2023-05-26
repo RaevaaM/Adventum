@@ -75,9 +75,13 @@ namespace Adventum.Controllers
         {
             return View();
         }
-        public IActionResult Booking()
+        public async Task<IActionResult> Booking()
         {
-            return View();
+            var events = await _context.Events
+                .Include(s => s.SportActivity)
+                .Include(l => l.Location)
+                .ToListAsync();
+            return View(events);
         }
 
 
