@@ -31,10 +31,11 @@ public class EventReservationsController : Controller
             .Include(er => er.Event)
             .ThenInclude(e => e.SportActivity)
             .ToListAsync();
+        
+        ViewBag.ImageUrl = "~/images/bungee/";
 
         return View(result);
     }
-
 
     [HttpGet]
     public async Task<IActionResult> Create(int sportActivityId)
